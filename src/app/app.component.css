@@ -1,0 +1,15 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.container_main {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    opacity: 80%;
+    border-radius: 12px;
+    width: 40%;
+    height: 45vh;
+    margin-top: 80px;
+}

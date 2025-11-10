@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url('assets/background/hispital3.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+.botao {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 24px;
+    border: none;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+    padding: 5px 70px;
+}
+
+.botao:hover {
+    opacity: 90%;
+}
