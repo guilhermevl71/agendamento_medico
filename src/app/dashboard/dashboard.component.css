@@ -1,0 +1,46 @@
+.config_container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 12px;
+    padding-top: 7px;
+}
+
+.container_geral {
+    min-width: 700px;
+    margin-bottom: 15px;
+}
+
+.container_agendamentos {
+
+}
+
+.container_titulo {
+    display: flex;
+    justify-content: center;
+}
+
+.agendamentos {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.agendamento_texto {
+    font-size: 0.95rem;
+    color: black;
+    font-weight: 400;
+}
+
+.status_texto {
+    color: green;
+    font-weight: 600;
+}
+
+.botao_container {
+    display: flex;
+    justify-content: center;
+}
+
+.botao {
+
+}

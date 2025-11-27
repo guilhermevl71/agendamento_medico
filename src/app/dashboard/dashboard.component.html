@@ -1,12 +1,30 @@
 <main>
     <div class="container_geral">
-        <div class="container_agendamentos">
-            <h2>Meus Agendamentos</h2>
-            <div class="agendamentos"> <!-- adicionar ngfor-->
-                <label for="">Consulta Dia 01/12/2025 com Dr.Joao Neves Status: Em Espera</label>
-                <label for="">Consulta Dia 01/09/2025 com Dr.Joao Neves Status: Expirada</label>
-            </div>
+        <div class="config_container">
+            <a (click)="logout()" class="sair"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #000000; transform: scale(1.5);"></i></a>
         </div>
-        <button>Novo Agendamento</button>
+        <div class="container_agendamentos">
+            <div class="container_titulo">
+                <h2>Meus Agendamentos</h2>
+            </div>
+
+            <ng-container *ngIf="appointments.length === 0">
+                <label class="agendamento_texto">Você não possui agendamentos!</label>
+            </ng-container>
+
+            <div class="agendamentos" *ngFor="let appointment of appointments">
+                <label class="agendamento_texto">
+                    Consulta Dia {{ appointment.date }}
+                    com {{ appointment.doctor }}
+                    | Status:
+                    <span class="status_texto">{{ appointment.status }}</span>
+                </label>
+            </div>
+
+            <hr>
+        </div>
+        <div class="botao_container">
+            <button [routerLink]="['/criar-agendamento']" routerLinkActive="router-link-active"  class="botao">Novo Agendamento</button>
+        </div>
     </div>
 </main>

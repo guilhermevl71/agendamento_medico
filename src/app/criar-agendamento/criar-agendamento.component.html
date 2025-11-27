@@ -1,32 +1,74 @@
 <main>
-    <div class="container_geral">
-        <h2>Doutores</h2>
-        <div class="container_doutores">
-            <p>Selecione por qual Doutor(a) você deseja ser atendido:</p>
-            <div> <!-- adicionar ngfor-->
-                <input type="checkbox" name="" id="" placeholder="Dr Joao Neves">
-            </div>
-            <button>Prosseguir</button>
-        </div>
 
-        <div class="container_agendamento">
-            <h2>Agendamento</h2>
-            <div class="informacoes_dr">
-                <img src="" alt="">
-                <p class="nome">Dr Joao Neves</p>
-                <p class="endereco">Rua Nao sei oq</p>
-            </div>
-
-            <hr>
-
-            <div class="horario">
-                <div class="horarios_disponiveis"> <!-- adicionar ngfor-->
-                    <p>17/10</p>
-                    <p>sexta feira</p>
-                    <p>08:30</p>
-                </div>
-            </div>
-            <button>Agendar</button>
-        </div>
+  <!-- TELA 1 — Selecionar Doutor -->
+  <div *ngIf="telaSelecionar" class="container_geral">
+    <div class="voltar">
+      <a routerLink="/dashboard">
+        <i class="fa-solid fa-arrow-left-long" style="color: #000000; transform: scale(1.5);"></i>
+      </a>
     </div>
+
+    <div class="container_titulo">
+      <h2 class="titulo">Doutores</h2>
+    </div>
+
+    <div class="container_doutores">
+      <p class="paragrafo">Selecione por qual Doutor(a) você deseja ser atendido:</p>
+
+      <select class="doutores_list" [(ngModel)]="selectedDoctorId">
+        <option value="">Selecione...</option>
+        <option *ngFor="let d of doctors" [value]="d.id">{{ d.nome }}</option>
+      </select>
+
+      <div class="botao_container">
+        <button class="botao" (click)="prosseguir()" [disabled]="!selectedDoctorId">Prosseguir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELA 2 — Escolher dia e horário -->
+  <div *ngIf="telaConfirmar" class="container_geral">
+    <div class="voltar">
+      <a (click)="telaConfirmar = false; telaSelecionar = true">
+        <i class="fa-solid fa-arrow-left-long" style="color: #000000; transform: scale(1.5); cursor:pointer;"></i>
+      </a>
+    </div>
+
+    <div class="container_agendamento">
+      <div class="container_perfil">
+        <p class="nome">{{ selectedDoctorData?.nome }}</p>
+        <p class="bio">{{ selectedDoctorData?.bio }}</p>
+        <p class="crm">CRM: {{ selectedDoctorData?.crm }}</p>
+      </div>
+
+      <hr>
+
+      <!-- Seleção de dia -->
+      <div class="horario">
+        <p class="subtitle">Escolha o dia:</p>
+        <select [(ngModel)]="selectedDay" (change)="updateAvailableTimes()">
+          <option value="">Selecione...</option>
+          <option *ngFor="let h of selectedDoctorData?.horarios" [value]="h.weekday">{{ h.weekday }}</option>
+        </select>
+      </div>
+
+      <!-- Horários disponíveis -->
+      <div class="horario">
+        <p class="subtitle">Escolha o horário:</p>
+        <div class="horarios_disponiveis"
+             *ngFor="let h of filteredTimes"
+             (click)="selectTime(h)"
+             [class.horarioSelecionado]="selectedTime === h">
+          <p>{{ h.start_time }} - {{ h.end_time }}</p>
+        </div>
+      </div>
+
+      <div class="botao_container">
+        <button class="botao" [disabled]="!selectedTime" (click)="createAppointment()">
+          Agendar
+        </button>
+      </div>
+
+    </div>
+  </div>
 </main>

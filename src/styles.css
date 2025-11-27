@@ -9,6 +9,13 @@ body {
     background-size: cover; 
 }
 
+.titulo {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 25px;
+}
+
 .botao {
     background-color: black;
     color: white;
@@ -19,6 +26,7 @@ body {
     transition: opacity 0.5s ease;
     cursor: pointer;
     padding: 5px 70px;
+    font-weight: 600;
 }
 
 .botao:hover {

@@ -1,3 +1,53 @@
-.container_agendamento {
-    display: none;
+.container_geral {
+  min-width: 500px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.container_titulo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.container_doutores, .container_agendamento {
+  padding: 10px;
+}
+
+.paragrafo, .subtitle {
+  font-size: 0.95rem;
+  color: black;
+}
+
+.doutores_list, select {
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 5px;
+}
+
+.botao_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.botao {
+  width: 75%;
+  padding: 8px;
+}
+
+.horarios_disponiveis {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.horarioSelecionado {
+  background-color: #cce5ff;
+}
+
+.container_perfil p {
+  margin: 3px 0;
 }

@@ -1,15 +1,25 @@
 <main>
-    <div>
-        <h3>Login</h3>
-        <form action="">
-            <div class="inputs_email">
-                <input type="text" placeholder="Email">
+    <div class="container_main">
+        <h3 class="titulo">Login</h3>
+        <form class="form" (ngSubmit)="fazerLogin()">
+            <div class="container_inputs">
+                <div class="col-auto">
+                    <label for="inputEmail2" class="visually-hidden">Email</label>
+                    <input type="text" class="form-control" id="inputEmail2" placeholder="Email" [(ngModel)]="name" name="emaill">
+                </div>
+                <div class="col-auto">
+                    <label for="inputPassword2" class="visually-hidden">Password</label>
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="Password" [(ngModel)]="senha" name="senhaa">
+                </div>
             </div>
-            <div class="inputs_senha">
-                <input type="password" placeholder="Senha">
+            <div class="alert alert-danger" *ngIf="erroMsg">
+                    {{ erroMsg }}
             </div>
             <button class="botao">Entrar</button>
+            <div *ngIf="isLoading" class="loading-spinner">
+                <i class="fa fa-spinner fa-spin"></i> Carregando...
+            </div>
         </form>
-        <span>Não tem conta ? <a href="">Cadastre-se</a></span>
+        <span class="cadastro_texto">Não possui uma conta? <a href="">Registra-se</a></span>
     </div>
 </main>
