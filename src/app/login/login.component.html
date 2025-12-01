@@ -1,15 +1,16 @@
 <main>
+    <img class="img" src="assets/clinicalogin.png" alt="">
     <div class="container_main">
         <h3 class="titulo">Login</h3>
         <form class="form" (ngSubmit)="fazerLogin()">
             <div class="container_inputs">
                 <div class="col-auto">
-                    <label for="inputEmail2" class="visually-hidden">Email</label>
-                    <input type="text" class="form-control" id="inputEmail2" placeholder="Email" [(ngModel)]="name" name="emaill">
+                    <label for="inputEmail2" class="visually-hidden">Usuario</label>
+                    <input type="text" class="form-control" id="inputEmail2" placeholder="Usuario" [(ngModel)]="name" name="emaill">
                 </div>
                 <div class="col-auto">
                     <label for="inputPassword2" class="visually-hidden">Password</label>
-                    <input type="password" class="form-control" id="inputPassword2" placeholder="Password" [(ngModel)]="senha" name="senhaa">
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="Senha" [(ngModel)]="senha" name="senhaa">
                 </div>
             </div>
             <div class="alert alert-danger" *ngIf="erroMsg">
@@ -20,6 +21,6 @@
                 <i class="fa fa-spinner fa-spin"></i> Carregando...
             </div>
         </form>
-        <span class="cadastro_texto">Não possui uma conta? <a href="">Registra-se</a></span>
+        <span class="cadastro_texto">Não possui uma conta? <a [routerLink]="['/cadastro']" routerLinkActive="router-link-active"  href="">Registra-se</a></span>
     </div>
 </main>

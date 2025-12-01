@@ -1,0 +1,80 @@
+<section>
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active" aria-current="true"></button>
+      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="assets/carrosel/agendamento.jpg" class="d-block w-100 image ranger" alt="..."> 
+        <div class="container-info">
+          <div class="container-texto">
+            <h1 class="titulo">Agende sua consulta com facilidade</h1>
+            <p class="paragrafo">A plataforma de Agendamento Médico PROGRAVALE permite que você marque sua consulta em poucos cliques, de forma rápida e intuitiva.
+            Tenha praticidade e evite filas, realizando seu agendamento de onde estiver, a qualquer hora.</p>
+          </div>
+          <div class="container-link">
+            <a [routerLink]="['/agendamentos']" class="link" routerLinkActive="router-link-active">Agendar Agora</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="10000">
+        <img src="assets/carrosel/data-agendamento.jpg" class="d-block w-100 image march" alt="...">
+        <div class="container-info">
+          <img src="assets/logo/logotodabranca.png" alt="" class="logo">
+          <div class="container-texto">
+            <h1 class="titulo">Escolha a data e horário que preferir</h1>
+            <p class="paragrafo">Você tem total liberdade para selecionar o dia e o horário que melhor se encaixam na sua rotina.
+            O sistema mostra automaticamente os horários disponíveis, garantindo comodidade e transparência no momento da marcação.</p>
+          </div>
+          <div class="container-link">
+            <a [routerLink]="['/veiculos/march']" class="link" routerLinkActive="router-link-active">Ver Datas Disponíveis</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="10000">
+        <img src="assets/carrosel/comunicacao-medico-blog.jpg" class="d-block w-100 image bronco" alt="...">
+        <div class="container-info">
+          <img src="assets/logo/logotodabranca.png" alt="" class="logo">
+          <div class="container-texto">
+            <h1 class="titulo">Acompanhe e gerencie seus agendamentos</h1>
+            <p class="paragrafo"> Após agendar, você pode consultar facilmente o status da sua consulta, visualizar detalhes, alterar horários ou cancelar quando necessário.
+            Tudo em um único lugar, pensado para tornar sua experiência mais prática e organizada</p>
+          </div>
+          <div class="container-link">
+            <a [routerLink]="['/login']" class="link" routerLinkActive="router-link-active">Acessar Meus Agendamentos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards_container">
+    <div class="cardi">
+      <img class="card_img" src="assets/cards/doutor.png" alt="">
+      <h3 class="titulo_card">Doutores</h3>
+      <p class="paragrafo_card">Conheça Todos Nossos doutores</p>
+    </div>
+    <div class="cardi">
+      <img class="card_img" src="assets/cards/usuario.png" alt="">
+      <h3 class="titulo_card">Crie sua conta</h3>
+      <p class="paragrafo_card">Cadastre-se no nosso sistema</p>
+    </div>
+    <div class="cardi">
+      <img class="card_img" src="assets/cards/mais.png" alt="">
+      <h3 class="titulo_card">Saiba Mais</h3>
+      <p class="paragrafo_card">Conheça mais da nossa clinica</p>
+    </div>
+    <div class="cardi">
+      <img class="card_img" src="assets/cards/sucesso.png" alt="">
+      <h3 class="titulo_card">Credibilidade</h3>
+      <p class="paragrafo_card">Veja algumas avaliações</p>
+    </div>
+    <div class="cardi">
+      <img class="card_img" src="assets/cards/alvo.png" alt="">
+      <h3 class="titulo_card">Localização</h3>
+      <p class="paragrafo_card">Localização de nossos consultorios</p>
+    </div>
+  </div>
+</section>

@@ -6,7 +6,7 @@ import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [NgFor, NgIf, RouterLink],
+  imports: [NgFor, RouterLink],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

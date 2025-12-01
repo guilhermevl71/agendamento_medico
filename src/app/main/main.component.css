@@ -1,0 +1,307 @@
+
+nav {
+  display: flex;
+  gap: 2rem;
+  position: absolute;
+  left: 75%;
+  top: 1%;
+}
+
+.cabecalho__link {
+  font-family: var(--font-primaria);
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 400;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cabecalho__link:hover {
+  color: #d1d1d1;
+}
+
+.image { /* quando for deixa responsivo apenas muda o heigh de vh para px eu acho, ou puxa mx heigh ou colocar auto */
+  height: 90vh;
+  object-fit: cover;
+}
+
+.container-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 7%;
+  left: 5%;
+  gap: 35px;
+  max-width: 40%;
+}
+
+.logo {
+  width: 35%;
+}
+
+.container-texto {
+  justify-content: center;
+}
+
+.titulo {
+  color: rgb(54, 54, 54);
+  font-size: 6rem;
+  font-weight: 600;
+}
+
+.paragrafo {
+  font-size: 1.6rem;
+  color: rgb(54, 54, 54);
+  font-weight: 500;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  font-family: var(--font-secundaria);
+  font-weight: 600;
+  font-size: 1.30rem;
+  background-color: rgb(95, 95, 255);
+  border-radius: 4px;
+  padding: 10px 32px 10px 32px;
+  letter-spacing: 1.5px;
+  transition: background-color 0.5s ease;
+}
+
+.link:hover {
+  background-color: blue;
+}
+
+.carro-geral {
+  display: flex;
+  align-items: center;
+}
+
+.carro-texto {
+  padding-top: 5px;
+}
+
+.carro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ajuste {
+  gap: 10px;
+}
+
+.carro-img {
+  width: 50%;
+}
+
+.carro-titulo {
+  font-size: 1.25rem;
+}
+
+.carro-paragrafo {
+  font-size: 0.8rem;
+  font-family: var(--font-secundaria);
+  color: #747474;
+  max-height: 1px;
+}
+
+.carro-preco {
+  font-size: 1.05rem;
+  font-family: var(--font-primaria);
+  color: black;
+}
+
+.carro-link {
+  text-decoration: none;
+  color: white;
+  font-family: var(--font-secundaria);
+  font-weight: 600;
+  font-size: 1.15rem;
+  background-color: black;
+  border-radius: 48px;
+  padding: 10px 85px 10px 85px;
+  letter-spacing: 1.5px;
+  transition: opacity 0.5s ease;
+}
+
+.carro-link:hover {
+  opacity: 50%;
+}
+
+.cards_container {
+  display: flex;
+  justify-content: center;
+  margin-left: 300px;
+  margin-right: 300px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.cardi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #d9d9d9;
+}
+
+.card_img {
+  width: 35%;
+  cursor: pointer;
+}
+
+.card_img:hover {
+  width: 38%;
+}
+
+.paragrafo_card {
+  color: #747474;
+}
+
+@media(max-width: 600px) {
+  nav {
+    display: none;
+  }
+
+  app-navbar {
+    display: block;
+    background-color: black;
+  }
+
+  .carousel {
+    height: 60vh;
+  }
+
+  .image {
+    height: 60vh;
+  }
+
+  .ranger {
+    object-position: 75%;
+  }
+
+  .march {
+    object-position: 85%;
+  }
+
+  .bronco {
+    object-position: 0.5%;
+  }
+
+  .container-info {
+    top: 82%;
+    left: 25%;
+  }
+
+  .container-texto {
+    width: 300px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .titulo {
+    display: none;
+    font-size: 3rem;
+  }
+
+  .paragrafo {
+    display: none;
+    font-size: 1.75rem;
+  }
+
+  .container-link {
+    width: 250px;
+  }
+
+  .link {
+    font-size: 0.90rem;
+  }
+
+  .carro-geral {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+}
+
+@media(min-width:601px) and (max-width: 800px) {
+  nav {
+    transform: scale(0.6);
+    left: 48%;
+  }
+
+  .ranger {
+    object-position: 72%;
+  }
+
+  .march {
+    object-position: 85%;
+  }
+
+  .bronco {
+    object-position: 1%;
+  }
+
+  .logo {
+    transform: scale(1.2);
+  }
+
+  .container-info {
+    left: 2%;
+  }
+
+  .titulo {
+    font-size: 2.5rem;
+  }
+
+  .paragrafo {
+    font-size: 1.75rem;
+  }
+
+  .link {
+    font-size: 0.8rem;
+  }
+
+  .carro-geral {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media(min-width:801px) and (max-width: 1024px) {
+  nav {
+    transform: scale(0.7);
+    left: 55%;
+  }
+
+  .march {
+    object-position: 85%;
+  }
+
+  .bronco {
+    object-position: 1%;
+  }
+
+}
+
+@media(min-width:1025px) and (max-width: 1400px) {
+  nav {
+    transform: scale(0.8);
+    left: 62%;
+  }
+
+}
+
+@media(min-width:1401px) and (max-width: 1900px) {
+  nav {
+    transform: scale(0.9);
+    left: 72%;
+  }
+
+}

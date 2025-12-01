@@ -3,11 +3,11 @@ import { DoctorService } from '../services/doctor.service';
 import { AppointmentService } from '../services/appointment.service';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Route, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-criar-agendamento',
-  imports: [NgIf, NgFor, FormsModule],
+  imports: [NgIf, NgFor, FormsModule, RouterLink],
   templateUrl: './criar-agendamento.component.html',
   styleUrls: ['./criar-agendamento.component.css']
 })
@@ -97,4 +97,12 @@ export class CriarAgendamentoComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     });
   }
+
+  copiar() {
+    const texto = "(71) 99117-1623";
+
+    navigator.clipboard.writeText(texto)
+    
+  }
+
 }

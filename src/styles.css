@@ -2,11 +2,11 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background-image: url('assets/background/hispital3.jpg');
+    /* background-image: url('assets/background/hispital3.jpg'); */
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: cover;
 }
 
 .titulo {

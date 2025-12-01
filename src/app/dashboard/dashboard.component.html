@@ -1,30 +1,31 @@
 <main>
-    <div class="container_geral">
-        <div class="config_container">
-            <a (click)="logout()" class="sair"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #000000; transform: scale(1.5);"></i></a>
-        </div>
-        <div class="container_agendamentos">
-            <div class="container_titulo">
-                <h2>Meus Agendamentos</h2>
-            </div>
+    <div class="config_container">
+        <a (click)="logout()" class="sair"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #000000; transform: scale(1.5);"></i></a>
+    </div>
+    <div class="container_titulo">
+        <h2>Meus Agendamentos</h2>
+    </div>
 
-            <ng-container *ngIf="appointments.length === 0">
-                <label class="agendamento_texto">Você não possui agendamentos!</label>
-            </ng-container>
+    <table>
+        <thead>
+            <tr class="linha_titulo">
+                <th class="coluna_titulo">Data</th>
+                <th class="coluna_titulo">Doutor(a)</th>
+                <th class="coluna_titulo">Especilidade</th>
+                <th class="coluna_titulo">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="linha" *ngFor="let appointment of appointments">
+                <th class="coluna_body">{{ appointment.date }}</th>
+                <th class="coluna_body">{{ appointment.doctor.name }}</th>
+                <th class="coluna_body">{{ appointment.doctor.specialty }}</th>
+                <th class="coluna_body">{{ appointment.status_pt }}</th>
+            </tr>
+        </tbody>
+    </table>
 
-            <div class="agendamentos" *ngFor="let appointment of appointments">
-                <label class="agendamento_texto">
-                    Consulta Dia {{ appointment.date }}
-                    com {{ appointment.doctor }}
-                    | Status:
-                    <span class="status_texto">{{ appointment.status }}</span>
-                </label>
-            </div>
-
-            <hr>
-        </div>
-        <div class="botao_container">
-            <button [routerLink]="['/criar-agendamento']" routerLinkActive="router-link-active"  class="botao">Novo Agendamento</button>
-        </div>
+    <div class="botao_container">
+        <button [routerLink]="['/criar-agendamento']" routerLinkActive="router-link-active"  class="botao">Novo Agendamento</button>
     </div>
 </main>

@@ -30,17 +30,29 @@ if ($conn->connect_error) {
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-// ------- GET /doctors / GET /doctors?id= -------
+// ------- GET /doctors ou GET /doctors?id= -------
 if ($method === "GET") {
 
     // ---------- DETALHES DO MÉDICO ----------
     if (isset($_GET['id'])) {
         $id = intval($_GET['id']);
 
-        $sql = "SELECT d.id AS doctor_id, u.name, u.email, d.crm, d.bio
-                FROM doctors d
-                JOIN users u ON u.id = d.user_id
-                WHERE d.id = $id";
+        // SELECT com todos os novos campos
+        $sql = "
+            SELECT 
+                d.id AS doctor_id,
+                u.name,
+                u.email,
+                d.crm,
+                d.phone,
+                d.formation,
+                d.location,
+                d.specialty,
+                d.bio
+            FROM doctors d
+            JOIN users u ON u.id = d.user_id
+            WHERE d.id = $id
+        ";
 
         $res = $conn->query($sql);
 
@@ -51,25 +63,53 @@ if ($method === "GET") {
 
         $doctor = $res->fetch_assoc();
 
-        // -------- HORÁRIOS --------
-        $sqlHorarios = "SELECT weekday, start_time, end_time
-                        FROM availabilities
-                        WHERE doctor_id = $id";
+        // --------- TRADUÇÃO DOS DIAS ---------
+        $weekdayMap = [
+            "mon" => "Segunda-feira",
+            "tue" => "Terça-feira",
+            "wed" => "Quarta-feira",
+            "thu" => "Quinta-feira",
+            "fri" => "Sexta-feira",
+            "sat" => "Sábado",
+            "sun" => "Domingo"
+        ];
+
+        // --------- HORÁRIOS ----------
+        $sqlHorarios = "
+            SELECT weekday, start_time, end_time
+            FROM availabilities
+            WHERE doctor_id = $id
+        ";
 
         $resultHorarios = $conn->query($sqlHorarios);
 
         $horarios = [];
         while ($h = $resultHorarios->fetch_assoc()) {
+            // garante que exista a chave weekday e converte pra minúsculas
+            $weekdayKey = isset($h['weekday']) ? strtolower($h['weekday']) : '';
+
+            if (isset($weekdayMap[$weekdayKey])) {
+                $h['weekday_pt'] = $weekdayMap[$weekdayKey];
+            } else {
+                // se não encontrou tradução, mantém o valor original (ou string vazia)
+                $h['weekday_pt'] = isset($h['weekday']) ? $h['weekday'] : '';
+            }
+
             $horarios[] = $h;
         }
 
+        // 🔥 Retorno COMPLETO
         echo json_encode([
-            "id" => $doctor["doctor_id"],
-            "nome" => $doctor["name"],
-            "email" => $doctor["email"],
-            "crm" => $doctor["crm"],
-            "bio" => $doctor["bio"],
-            "horarios" => $horarios
+            "id"         => $doctor["doctor_id"],
+            "nome"       => $doctor["name"],
+            "email"      => $doctor["email"],
+            "crm"        => $doctor["crm"],
+            "phone"      => $doctor["phone"],
+            "formation"  => $doctor["formation"],
+            "location"   => $doctor["location"],
+            "specialty"  => $doctor["specialty"],
+            "bio"        => $doctor["bio"],
+            "horarios"   => $horarios
         ]);
         exit;
     }
@@ -84,7 +124,7 @@ if ($method === "GET") {
     $data = [];
     while ($row = $res->fetch_assoc()) {
         $data[] = [
-            "id" => $row["doctor_id"],
+            "id"   => $row["doctor_id"],
             "nome" => $row["name"]
         ];
     }
@@ -93,5 +133,7 @@ if ($method === "GET") {
     exit;
 }
 
+// Se cair aqui, método inválido
 echo json_encode(["error" => "Método não permitido"]);
 exit;
+

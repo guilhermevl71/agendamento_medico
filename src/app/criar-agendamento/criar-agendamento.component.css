@@ -1,8 +1,20 @@
+
+.container_geral1 {
+  min-width: 500px;
+  margin-top: 10px;
+  margin-bottom: 360px;
+  margin-left: 450px;
+  margin-right: 450px;
+}
+
 .container_geral {
   min-width: 500px;
   margin-top: 10px;
-  margin-bottom: 20px;
+   margin-bottom: 360px;
+  margin-left: 450px;
+  margin-right: 450px;
 }
+
 
 .container_titulo {
   display: flex;
@@ -13,6 +25,8 @@
 .container_doutores, .container_agendamento {
   padding: 10px;
 }
+
+
 
 .paragrafo, .subtitle {
   font-size: 0.95rem;
@@ -50,4 +64,18 @@
 
 .container_perfil p {
   margin: 3px 0;
+}
+
+.teste {
+  display: flex;
+  gap: 20px;
+}
+
+.img {
+  width: 10%;
+}
+
+.botao_teste {
+  border: 1px none;
+  background-color: whitesmoke;
 }

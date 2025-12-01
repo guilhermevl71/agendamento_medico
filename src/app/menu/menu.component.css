@@ -1,0 +1,29 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #505050;
+    font-weight: 500;
+    border-left: 1px solid #d9d9d9;
+    padding-left: 16px;
+    transition: ease opacity 0.5s;
+}
+
+a:hover {
+    opacity: 50%;
+}
+
+img {
+    width: 5%;
+}

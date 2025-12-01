@@ -1,1 +1,44 @@
-<p>cadastro works!</p>
+<main>
+    <img class="img" src="assets/clinicalogin.png" alt="">
+    <div class="container_main">
+        <h3 class="titulo">Cadastro</h3>
+
+        <form class="form" (ngSubmit)="fazerCadastro()">
+            <div class="container_inputs">
+
+                <div class="col-auto">
+                    <input type="text" class="form-control" placeholder="Nome completo" [(ngModel)]="nome" name="nome">
+                </div>
+
+                <div class="col-auto">
+                    <input type="email" class="form-control" placeholder="Email" [(ngModel)]="email" name="email">
+                </div>
+
+                <div class="col-auto">
+                    <input type="password" class="form-control" placeholder="Senha" [(ngModel)]="senha" name="senha">
+                </div>
+
+                <div class="col-auto">
+                    <input type="text" class="form-control" placeholder="CPF" [(ngModel)]="cpf" name="cpf">
+                </div>
+
+                <div class="col-auto">
+                    <input type="text" class="form-control" placeholder="Convênio" [(ngModel)]="convenio" name="convenio">
+                </div>
+
+            </div>
+
+            <div class="alert alert-danger" *ngIf="erroMsg">
+                {{ erroMsg }}
+            </div>
+
+            <button class="botao">Cadastrar</button>
+
+            <div *ngIf="isLoading" class="loading-spinner">
+                <i class="fa fa-spinner fa-spin"></i> Carregando...
+            </div>
+        </form>
+
+        <span class="cadastro_texto">Já possui conta? <a [routerLink]="['/login']" routerLinkActive="router-link-active" >Faça login</a></span>
+    </div>
+</main>

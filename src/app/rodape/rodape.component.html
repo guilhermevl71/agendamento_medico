@@ -1,0 +1,34 @@
+<section>
+    <div class="rodape-geral">
+        <div class="rodape">
+            <div class="rodape__redes">
+                <p class="rodape__subtitulo">Redes Sociais:</p>
+                <div class="rodape-icons">
+                    <a href="https://www.facebook.com/FordBrasil?locale=pt_BR" target="_blank">
+                        <img class="rodape__img" src="assets/logos/facebook.png">
+                    </a>
+                    <a href="https://www.instagram.com/fordbrasil/" target="_blank">
+                        <img class="rodape__img" src="assets/logos/instagram.png">
+                    </a>
+                    <a href="https://www.youtube.com/fordbrasil" target="_blank">
+                        <img class="rodape__img" src="assets/logos/youtube.png">
+                    </a>
+                </div>
+            </div>
+            <div class="rodape-atendimento">
+                <p class="rodape__subtitulo">Atendimento ao cliente:</p>
+                <a class="diretos-paragrafo" [routerLink]="['/contato']" routerLinkActive="router-link-active" >Fale conosco</a>
+            </div>
+            <div class="rodape-veiculos">
+                <p class="rodape__subtitulo">Agendamento:</p>
+                <a class="diretos-paragrafo" [routerLink]="['/home']" routerLinkActive="router-link-active" >Faça seu agendamento</a>
+            </div>
+            <img class="rodape__logo" src="assets/logo/logobranca.png">
+        </div>
+        <div class="rodape-direitos">
+            <p class="diretos-copyright" >&copy; Clinica Provale</p>
+            <a class="diretos-paragrafo" [routerLink]="['/politica-de-privacidade']" routerLinkActive="router-link-active">Política de Privacidade</a>
+            <a class="diretos-paragrafo" [routerLink]="['/lgpd']" routerLinkActive="router-link-active">LGPD: Proteção de Dados</a>
+        </div>
+    </div>
+</section>

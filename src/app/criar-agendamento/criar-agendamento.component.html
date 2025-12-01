@@ -1,9 +1,9 @@
 <main>
 
   <!-- TELA 1 — Selecionar Doutor -->
-  <div *ngIf="telaSelecionar" class="container_geral">
+  <div *ngIf="telaSelecionar" class="container_geral1">
     <div class="voltar">
-      <a routerLink="/dashboard">
+      <a [routerLink]="['/agendamentos']" routerLinkActive="router-link-active" >
         <i class="fa-solid fa-arrow-left-long" style="color: #000000; transform: scale(1.5);"></i>
       </a>
     </div>
@@ -35,10 +35,15 @@
     </div>
 
     <div class="container_agendamento">
-      <div class="container_perfil">
-        <p class="nome">{{ selectedDoctorData?.nome }}</p>
-        <p class="bio">{{ selectedDoctorData?.bio }}</p>
-        <p class="crm">CRM: {{ selectedDoctorData?.crm }}</p>
+      <div class="teste">
+        <img class="img" src="assets/perfil.png" alt="">
+        <div class="container_perfil">
+          <p class="nome">{{ selectedDoctorData?.nome }}</p>
+          <p class="bio">{{ selectedDoctorData?.specialty }}</p>
+          <p class="crm">CRM: {{ selectedDoctorData?.crm }}</p>
+          <button class="botao_teste" (click)="copiar()">Telefone <i class="fa-solid fa-mobile-screen-button"></i></button>
+        </div>
+        <p class="endereco">Endereço: {{  selectedDoctorData?.location }}</p>
       </div>
 
       <hr>
@@ -47,8 +52,8 @@
       <div class="horario">
         <p class="subtitle">Escolha o dia:</p>
         <select [(ngModel)]="selectedDay" (change)="updateAvailableTimes()">
-          <option value="">Selecione...</option>
-          <option *ngFor="let h of selectedDoctorData?.horarios" [value]="h.weekday">{{ h.weekday }}</option>
+          <option value="" disabled>Selecione...</option>
+          <option *ngFor="let h of selectedDoctorData?.horarios" [value]="h.weekday">{{ h.weekday_pt }}</option>
         </select>
       </div>
 
